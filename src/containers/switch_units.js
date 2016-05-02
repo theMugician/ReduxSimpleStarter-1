@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 import Geosuggest from 'react-geosuggest';
 
-class SearchBar extends Component {
+class SwitchUnits extends Component {
   constructor(props) {
     super(props);
 
@@ -29,16 +29,11 @@ class SearchBar extends Component {
 
   render() {
     return (
-    <div className="col-xs-8">
-      <form onSubmit={this.onFormSubmit} className="input-group">
-      <Geosuggest
-          placeholder="Get a five-day forecast in your favorite cities"
-          className="form-control"
-          onSuggestSelect={this.onInputChange}/>
-          <span className="input-group-btn">
-              <button type="submit" className="btn btn-secondary">Submit</button>
-          </span>
-      </form>
+    <div className="col-xs-4">
+			<div class="switch">
+				<input id="units-toggle" type="checkbox" />
+						<label htmlFor="units-toggle"></label>
+			</div>
     </div>
     );
   }
@@ -48,4 +43,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchWeather }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(SwitchUnits);

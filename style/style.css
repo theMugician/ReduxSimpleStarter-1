@@ -2,3 +2,34 @@
     width: 400px;
     margin-top: 40px;
 }
+
+#units-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+#units-toggle + label:after {
+    content: "F";
+    transition: all 0.4s;
+}
+
+#units-toggle + label:before {
+    content: "C";
+    transition: all 0.4s;
+}
+
+#units-toggle + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+#units-toggle:checked + label:after {
+    margin-left: -20px;
+}
+
+#units-toggle:checked + label:before {
+    margin-left: 20px;
+}
