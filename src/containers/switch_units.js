@@ -26,21 +26,23 @@ class SwitchUnits extends Component {
     this.props.fetchWeather(this.state.term);
     this.setState({ term: '' });
   }
-
-  render() {
+  render () {
     return (
     <div className="col-xs-4">
-			<div class="switch">
-				<input id="units-toggle" type="checkbox" />
+			<div className="switch">
+				<input id="units-toggle" type="checkbox"
+				onClick={this.switchTemp}
+				/>
 						<label htmlFor="units-toggle"></label>
 			</div>
     </div>
     );
   }
 }
-
+/*
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchWeather }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SwitchUnits);
+/
