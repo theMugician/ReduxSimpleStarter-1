@@ -10,20 +10,15 @@ class SwitchUnits extends Component {
 
     this.state = { term: '' };
 
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.switchTemp = this.switchTemp.bind(this);
+
   }
 
-  onInputChange(event) {
-    console.log(event.location);
-    this.setState({ term: event.location });
-  }
-
-  onFormSubmit(event) {
+	switchTemp(event) {
     event.preventDefault();
-    console.log("form has been submitted");
+    console.log("Temperature has been switched");
     // We need to go and fetch weather data
-    this.props.fetchWeather(this.state.term);
+    
     this.setState({ term: '' });
   }
   render () {
@@ -45,4 +40,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(SwitchUnits);
-/
+
+*/

@@ -14,3 +14,4 @@ export function fetchWeather(coord, units='metric') {
     payload: request
   };
 }
+
