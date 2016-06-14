@@ -15,3 +15,13 @@ export function fetchWeather(coord, units='metric') {
   };
 }
 
+export const SWITCH_UNIT = 'SWITCH_UNIT';
+
+export function switchUnit(unit){
+	const unit = unit;
+
+	return {
+		type: SWITCH_UNIT,
+		payload: unit
+	};
+}
