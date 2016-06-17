@@ -9,13 +9,15 @@ class SwitchUnits extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { unit: 'c' };
+    //this.state = { unit: 'c' };
 
     this.switchTemp = this.switchTemp.bind(this);
 
   }
-	this.setState({ unit: 'c' });
-	switchTemp(event) {
+
+  this.setState({ unit: 'c' });
+
+  switchTemp(event) {
     event.preventDefault();
     console.log("Temperature has been switched");
 		if (this.state.unit=== 'c'){

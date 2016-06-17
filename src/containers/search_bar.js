@@ -9,19 +9,18 @@ class SearchBar extends Component {
     super(props);
 
     this.state = { term: '' };
-
     this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onSelection = this.onSelection.bind(this);
   }
 
   onInputChange(event) {
-    console.log(event.location);
-    this.setState({ term: event.location });
+    console.log(event);
+    //this.setState({ term: event.location });
   }
 
-  onFormSubmit(event) {
-    event.preventDefault();
-    console.log("form has been submitted");
+  onSelection(event) {
+    //event.preventDefault();
+    console.log(event.location);
     // We need to go and fetch weather data
     this.props.fetchWeather(this.state.term);
     this.setState({ term: '' });
@@ -30,15 +29,12 @@ class SearchBar extends Component {
   render() {
     return (
     <div className="col-xs-8">
-      <form onSubmit={this.onFormSubmit} className="input-group">
       <Geosuggest
-          placeholder="Get a five-day forecast in your favorite cities"
-          className="form-control"
-          onSuggestSelect={this.onInputChange}/>
-          <span className="input-group-btn">
-              <button type="submit" className="btn btn-secondary">Submit</button>
-          </span>
-      </form>
+        placeholder = "Get five-day forecasts for your favorite cities"
+        initialValue = {this.state.term}
+        onChange = {this.onInputChange}
+        onSuggestSelect = {this.onSelection} 
+      />
     </div>
     );
   }
