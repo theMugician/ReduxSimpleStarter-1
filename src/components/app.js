@@ -18,7 +18,7 @@ export default class App extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col-xs-12 text-center">
             <WeatherList />
           </div>
         </div>

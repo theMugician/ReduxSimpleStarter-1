@@ -18,7 +18,7 @@ export function fetchWeather(coord, units='metric') {
 
 export function switchTempUnits(temp_unit) {
   return {
-    console.log("New temp.unit, set to F!");
     type: SWITCH_TEMP_UNITS,
-    payload: { temp_unit: temp_unit };
+    payload: { temp_unit: temp_unit }
+  }
 }

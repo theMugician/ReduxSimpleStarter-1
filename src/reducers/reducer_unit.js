@@ -1,10 +1,13 @@
 import { SWITCH_TEMP_UNITS } from '../actions/index';
 
-export default function(state = [], action) {
+const initialState = {
+   temp_unit: 'C'
+}
+
+export default function(state = initialState, action) {
   switch (action.type) {
       case SWITCH_TEMP_UNITS:
-        console.log('Hello from reducer_unit: ', action.payload);
-        return [...state, action.payload ];
+        return action.payload;
       }
 
   return state;

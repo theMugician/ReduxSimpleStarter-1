@@ -8,24 +8,15 @@ class SwitchUnits extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { unit: 'c' };
     this.switchTemp = this.switchTemp.bind(this);
   }
 
   switchTemp(event) {
-    console.log("Temperature units have been switched");
-    console.log("Initial temp_unit: ", this.props.temp.unit); 
-
-    if (this.props.temp.unit === 'C') {
-      // setState is asynchronous so will not be updated right away. Use a callback (the second parameter to setState) 
-      // to be invoked after the internal state has been updated. 
-      this.setState({ unit: 'F' }, () => console.log("New temp.unit (should be F): ", this.props.temp.unit));
+    if (this.props.temp.temp_unit === 'C') {
+      this.props.switchTempUnits('F')
+    } else {
+      this.props.switchTempUnits('C')
     }
-
-    if (this.props.temp.unit === 'F'){
-      this.setState({ unit: 'C' }, () => console.log("New temp.unit (should be C): ", this.props.temp.unit));
-    }
-
   }
 
   render () {
@@ -52,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ switchUnit }, dispatch);
+  return bindActionCreators({ switchTempUnits }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SwitchUnits);

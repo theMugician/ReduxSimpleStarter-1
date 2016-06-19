@@ -31,7 +31,7 @@ class SearchBar extends Component {
     return (
     <div>
       <Geosuggest
-        placeholder = "Get five-day forecasts for your favorite cities"
+        placeholder = "Get current temperatures in your favorite cities"
         initialValue = {this.state.location}
         onChange = {this.onInputChange}
         onSuggestSelect = {this.onSelection}
