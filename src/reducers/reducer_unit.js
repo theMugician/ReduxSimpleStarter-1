@@ -1,14 +1,11 @@
-import { SWITCH_UNIT } from '../actions/index';
-import { FETCH_WEATHER } from '../actions/index';
-const initialUnit = {unit: "c"};
+import { SWITCH_TEMP_UNITS } from '../actions/index';
 
-export default function(state = initialUnit,action) {
+export default function(state = [], action) {
   switch (action.type) {
-  case SWITCH_UNIT:
-    return action.payload;
-  }
-	case FETCH_WEATHER:
-		return initialUnit;
-	}
+      case SWITCH_TEMP_UNITS:
+        console.log('Hello from reducer_unit: ', action.payload);
+        return [...state, action.payload ];
+      }
+
   return state;
 }
