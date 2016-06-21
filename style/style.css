@@ -1,6 +1,5 @@
 #app {
-    width: 400px;
-    margin-top: 40px;
+    margin-top: 80px;
 }
 
 #units-toggle {
@@ -32,4 +31,16 @@
 
 #units-toggle:checked + label:before {
     margin-left: 20px;
+}
+
+.temp-buttons {
+    margin-right: 0;
+    margin-left: 0;
+    padding-top: 25px;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }

@@ -8,42 +8,42 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: '' };
-
+    this.state = { location: '' };
     this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onSelection = this.onSelection.bind(this);
   }
 
   onInputChange(event) {
-    console.log(event.location);
-    this.setState({ term: event.location });
+    console.log(event);
   }
 
-  onFormSubmit(event) {
-    event.preventDefault();
-    console.log("form has been submitted");
-    // We need to go and fetch weather data
-    this.props.fetchWeather(this.state.term);
-    this.setState({ term: '' });
+  onSelection(event) {
+    console.log('Selected Coords: ', event.location);
+
+    // Fetch weather data
+    this.props.fetchWeather(event.location);
+
+    // Clear the geosuggest box by accessing the clear method of Geosuggest on this instance
+    this.refs.geosuggest_component.clear();
   }
 
   render() {
     return (
-    <div className="col-xs-8">
-      <form onSubmit={this.onFormSubmit} className="input-group">
+    <div>
       <Geosuggest
-          placeholder="Get a five-day forecast in your favorite cities"
-          className="form-control"
-          onSuggestSelect={this.onInputChange}/>
-          <span className="input-group-btn">
-              <button type="submit" className="btn btn-secondary">Submit</button>
-          </span>
-      </form>
+        placeholder = "Get current temperatures in your favorite cities"
+        initialValue = {this.state.location}
+        onChange = {this.onInputChange}
+        onSuggestSelect = {this.onSelection}
+        // Name a calling reference
+        ref = 'geosuggest_component'
+      />
     </div>
     );
   }
 }
 
+// Set the fetchWeather action creator to be available on props
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchWeather }, dispatch);
 }
