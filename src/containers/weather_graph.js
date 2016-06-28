@@ -13,19 +13,32 @@ class WeatherGraph extends Component {
 	
   displayTemp(weatherData) {
 
-    let current_temp = 0;
+		let hourly_data = [];
 
     if ( typeof weatherData === 'undefined' || weatherData === null ) {
         return '';
     }
+		for(var i = 0; i <= 3; i++){
+			if (this.props.temp.temp_unit === 'C') {
+				hourly_data.push(x
+			:
+				new Date(weatherData.list[i].main.dt), y
+			:
+				Math.round(weatherData.list[i].main.temp - 273.15)
+			)
+				;
+			}
+			if (this.props.temp.temp_unit === 'F') {
+				hourly_data.push(x
+			:
+				new Date(weatherData.list[i].main.dt), y
+			:
+				Math.round(weatherData.list[i].main.temp * 9/5 - 459.67)
+			)
+				;
+			}
 
-    if (this.props.temp.temp_unit === 'C') {
-        current_temp = Math.round(weatherData.list[0].main.temp - 273.15);
-    }
-
-    if (this.props.temp.temp_unit === 'F') {
-        current_temp = Math.round((weatherData.list[0].main.temp) * 9/5 - 459.67);
-    }
+		}
 
     const output_str = current_temp + this.props.temp.temp_unit;
     return output_str;
