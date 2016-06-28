@@ -13,9 +13,16 @@ class SearchBar extends Component {
     this.onSelection = this.onSelection.bind(this);
   }
 	componentDidMount() {
+	console.log("component is working");
+		if(navigator.geolocation){
+			console.log("component is now this isworking");
 		navigator.geolocation.getCurrentPosition(function (position) {
+			console.log(position.coords);
 			this.props.fetchWeather(position.coords)
 		})
+			}else {
+			console.log(" Geo is Not working");
+			}
 	}
 
   onInputChange(event) {

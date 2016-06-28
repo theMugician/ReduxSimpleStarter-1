@@ -7,7 +7,9 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const SWITCH_TEMP_UNITS = 'SWITCH_TEMP_UNITS';
 
 export function fetchWeather(coord, units='metric') {
-  const url = `${ROOT_URL}?lat=${coord.lat}&lon=${coord.lng}&units={units}&appid=${API_KEY}`;
+	let latitude = coord.lat || coord.latitude;
+	let longitude = coord.lng || coord.longitude;
+  const url = `${ROOT_URL}?lat=${latitude}&lon=${longitude}&units={units}&appid=${API_KEY}`;
   const request = axios.get(url);
 
   return {
